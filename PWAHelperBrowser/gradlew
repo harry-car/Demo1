@@ -1,0 +1,200 @@
+#!/usr/bin/env sh
+
+#
+# Copyright 2015 the original author or authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+##############################################################################
+##
+##  Gradle start up script for UN*X
+##
+##############################################################################
+
+# Attempt to set APP_HOME
+# Resolve links: $0 may be a link
+PRG="$0"
+# Need this for relative symlinks.
+while [ -h "$PRG" ] ; do
+    ls=`ls -ld "$PRG"`
+    link=`expr "$ls" : '.*-> \(.*\)$'`
+    if expr "$link" : '/.*' > /dev/null; then
+        PRG="$link"
+    else
+        PRG=`dirname "$PRG"`"/$link"
+    fi
+done
+SAVED="`pwd`"
+cd "`dirname \"$PRG\"`/" >/dev/null
+APP_HOME="`pwd -P`"
+cd "$SAVED" >/dev/null
+
+APP_NAME="Gradle"
+APP_BASE_NAME=`basename "$0"`
+
+# Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
+DEFAULT_JVM_OPTS="-Xmx64m -Xms64m"
+
+# Use the maximum available, or set MAX_FD != -1 to use that value.
+MAX_FD="maximum"
+
+warn () {
+    echo "$*"
+} >&2
+
+die () {
+    echo
+    echo "$*"
+    echo
+    exit 1
+} >&2
+
+# OS specific support (must be 'true' or 'false').
+cygwin=false
+msys=false
+darwin=false
+nonstop=false
+case "`uname`" in
+  CYGWIN* )
+    cygwin=true
+    ;;
+  Darwin* )
+    darwin=true
+    ;;
+  MSYS* | MINGW* )
+    msys=true
+    ;;
+  NONSTOP* )
+    nonstop=true
+    ;;
+esac
+
+CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
+
+
+# Determine the Java command to use to start the JVM.
+if [ -n "$JAVA_HOME" ] ; then
+    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
+        # IBM's JDK on AIX uses strange locations for the executables
+        JAVACMD="$JAVA_HOME/jre/sh/java"
+    else
+        JAVACMD="$JAVA_HOME/bin/java"
+    fi
+    if [ ! -x "$JAVACMD" ] ; then
+        die "ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME
+
+Please set the JAVA_HOME variable in your environment to match the
+location of your Java installation."
+    fi
+else
+    JAVACMD="java"
+    which java >/dev/null 2>&1 || die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+
+Please set the JAVA_HOME variable in your environment to match the
+location of your Java installation."
+fi
+
+# Increase the maximum file descriptors if we can.
+if ! "$cygwin" && ! "$darwin" && ! "$nonstop" ; then
+    MAX_FD_LIMIT=`ulimit -H -n`
+    if [ $? -eq 0 ] ; then
+        if [ "$MAX_FD" = "maximum" -o "$MAX_FD" = "max" ] ; then
+            # Use system's hard limit
+            MAX_FD="$MAX_FD_LIMIT"
+        fi
+        ulimit -n $MAX_FD
+        if [ $? -ne 0 ] ; then
+            warn "Could not set maximum file descriptor limit: $MAX_FD"
+        fi
+    else
+        warn "Could not query maximum file descriptor limit: $MAX_FD_LIMIT"
+    fi
+fi
+
+# For Darwin, add options to specify how the application appears in the dock
+if $darwin; then
+    GRADLE_OPTS="$GRADLE_OPTS \"-Xdock:name=$APP_NAME\" \"-Xdock:icon=$APP_HOME/media/gradle.icns\""
+fi
+
+# For Cygwin or MSYS, switch paths to Windows format before running java
+if "$cygwin" || "$msys" ; then
+    APP_HOME=`cygpath --path --mixed "$APP_HOME"`
+    CLASSPATH=`cygpath --path --mixed "$CLASSPATH"`
+    JAVACMD=`cygpath --unix "$JAVACMD"`
+
+    # We build the pattern for arguments to be converted via --pattern first
+    # to interpret correctly quotes, brackets and backslashes
+    PATTERNS_FILE=`mktemp`
+    args=""
+    if [ "$msys" = "true" ]; then
+        # Ensure paths are in UNIX format before converting to MSYS format
+        for arg do
+            if [ "$arg" = "-Dorg.gradle.appname=$APP_BASE_NAME" ] ; then
+                args="$args \"$arg\""
+            # Handle arguments with spaces, e.g. a quoted path
+            # Collect arguments with spaces by first removing the quotes
+            elif [[ "$arg" = \"*\" || "$arg" = \'*\' ]] ; then
+                args="$args \"`cygpath --path --ignore \"$arg\"`\""
+            # Collect arguments with spaces by searching for arguments with spaces
+            # This is for arguments that are not quoted but contain spaces
+            # e.g. a path with spaces
+            elif [[ "$arg" = *\ * ]] ; then
+                args="$args \"`cygpath --path --ignore \"$arg\"`\""
+            else
+                args="$args $arg"
+            fi
+        done
+        # Pass the arguments to sed for MSYS format conversion
+        # This is required to fix paths like "C:/Program Files/Java/jdk1.8.0_102/bin/java"
+        #
+        # MSYS Git Bash (mingw64) uses a different path format than MinGW (MSYS)
+        # We need to detect if we are running in MSYS Git Bash and convert paths accordingly
+        # https://sourceforge.net/p/msys2/wiki/MSYS2%20introduction/
+        #
+        # The conversion is done by replacing paths with spaces with MSYS paths
+        # For example, "C:/Program Files" becomes "/c/Program Files"
+        # This is done by the sed command below
+        #
+        # This is a best-effort approach to fix paths for MSYS Git Bash
+        # It may not work for all cases
+        # If you encounter issues, please report them to the Gradle forum
+        # https://discuss.gradle.org
+        #
+        if [[ " $@ " =~ " --build-file " || " $@ " =~ " -b " || " $@ " =~ " --init-script " || " $@ " =~ " -I " ]] ; then
+            echo "$args" | sed 's/\([A-Za-z]\):\(.\+\)/\/=\1\2/g' > "$PATTERNS_FILE"
+            args=""
+            # Collect arguments from PATTERNS_FILE
+            # This is required to fix paths with spaces in MSYS Git Bash
+            while IFS= read -r line; do
+              args="$args $line"
+            done < "$PATTERNS_FILE"
+            # Remove the temporary file
+            rm "$PATTERNS_FILE"
+        fi
+    else # cygwin
+        for arg do
+            if [[ "$arg" = "--daemon" ]] || [[ "$arg" = "--no-daemon" ]] || [[ "$arg" = "--stop" ]] || [[ "$arg" = "-Dorg.gradle.appname=$APP_BASE_NAME" ]] ; then
+                args="$args $arg"
+            else
+                echo "$arg" >> "$PATTERNS_FILE"
+                args="$args --pattern=$PATTERNS_FILE"
+            fi
+        done
+    fi
+    JAVACMD="`cygpath --unix "$JAVACMD"`"
+else
+    args="$@"
+fi
+
+exec "$JAVACMD" $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS "-Dorg.gradle.appname=$APP_BASE_NAME" -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain $args
