@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_fragment_placeholder_text"
+        android:textSize="18sp"/>
+
+    <!-- Settings options will be added here, possibly using PreferenceFragmentCompat or custom views -->
+    <Switch
+        android:id="@+id/switch_popup_blocker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setting_popup_blocker"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setting_browsing_mode"
+        android:layout_marginTop="16dp"/>
+    <RadioGroup
+        android:id="@+id/rg_browsing_mode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton android:id="@+id/rb_mobile_mode" android:text="@string/setting_mode_mobile" />
+        <RadioButton android:id="@+id/rb_desktop_mode" android:text="@string/setting_mode_desktop" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_manage_downloads"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setting_manage_downloads"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/btn_set_search_engine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setting_default_search_engine"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

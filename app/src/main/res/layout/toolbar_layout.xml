@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"
+    app:popupTheme="@style/Theme.AppCompat.Light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back" <!-- Placeholder, replace with actual drawable -->
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/desc_back_button"
+            android:layout_marginEnd="8dp"/>
+
+        <ImageButton
+            android:id="@+id/btn_forward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_forward" <!-- Placeholder -->
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/desc_forward_button"
+            android:layout_marginEnd="8dp"/>
+
+        <EditText
+            android:id="@+id/et_address_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/hint_address_bar"
+            android:inputType="textUri"
+            android:imeOptions="actionGo"
+            android:background="@android:drawable/edit_text" <!-- Basic background, style as needed -->
+            android:padding="8dp"
+            android:textSize="16sp"/>
+
+        <ImageButton
+            android:id="@+id/btn_refresh_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_refresh" <!-- Placeholder, will change to 'stop' icon during loading -->
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/desc_refresh_button"
+            android:layout_marginStart="8dp"/>
+
+        <ImageButton
+            android:id="@+id/btn_add_bookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_bookmark_border" <!-- Placeholder, change to ic_bookmark for bookmarked pages -->
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/desc_add_bookmark_button"
+            android:layout_marginStart="8dp"/>
+            
+        <ImageButton
+            android:id="@+id/btn_tabs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_tabs" <!-- Placeholder for tabs icon -->
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/desc_tabs_button"
+            android:layout_marginStart="8dp"/>
+
+        <ImageButton
+            android:id="@+id/btn_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_settings" <!-- Placeholder -->
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/desc_settings_button"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+</androidx.appcompat.widget.Toolbar>

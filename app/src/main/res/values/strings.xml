@@ -1,0 +1,102 @@
+<resources>
+    <!-- From toolbar_layout.xml -->
+    <string name="desc_back_button">Back</string>
+    <string name="desc_forward_button">Forward</string>
+    <string name="hint_address_bar">Search or type URL</string>
+    <string name="desc_refresh_button">Refresh</string>
+    <string name="desc_stop_button">Stop Loading</string>
+    <string name="desc_add_bookmark_button">Add Bookmark</string>
+    <string name="desc_bookmarked_button">Bookmarked</string>
+    <string name="desc_tabs_button">Tabs</string> <!-- Will be Bookmarks in MainActivity -->
+    <string name="desc_settings_button">Settings</string>
+
+    <!-- From tab_item_layout.xml -->
+    <string name="desc_tab_favicon">Tab Favicon</string>
+    <string name="placeholder_tab_title">New Tab</string>
+    <string name="desc_close_tab_button">Close Tab</string>
+
+    <!-- From bookmark_list_item.xml -->
+    <string name="desc_bookmark_favicon">Bookmark Favicon</string>
+    <string name="placeholder_bookmark_title">Bookmark Title</string>
+    <string name="placeholder_bookmark_url">https://example.com</string>
+    <string name="desc_delete_bookmark_button">Delete Bookmark</string>
+
+    <!-- From fragment_settings.xml (old, will be replaced by Preference strings) -->
+    <!-- <string name="settings_fragment_placeholder_text">Settings</string> -->
+    <!-- <string name="setting_popup_blocker">Enable Pop-up Blocker</string> -->
+    <!-- <string name="setting_browsing_mode">Webpage Browsing Mode</string> -->
+    <!-- <string name="setting_mode_mobile">Mobile Version</string> -->
+    <!-- <string name="setting_mode_desktop">Desktop Version</string> -->
+    <!-- <string name="setting_manage_downloads">Manage Downloads</string> -->
+    <!-- <string name="setting_default_search_engine">Default Search Engine</string> -->
+
+    <!-- From dialog_search_engine_selection.xml -->
+    <string name="dialog_title_search_engine">Select Search Engine</string>
+    
+    <!-- App and Activity Titles -->
+    <string name="app_name">Geely Browser</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_bookmarks">Bookmarks</string>
+
+    <!-- Feedback Messages -->
+    <string name="feedback_bookmarked">Bookmarked</string>
+    <string name="feedback_bookmark_removed">Bookmark removed</string>
+    <string name="feedback_new_tab_created">New tab created</string>
+
+    <!-- For BookmarksActivity -->
+    <string name="no_bookmarks_available">No bookmarks available.</string>
+
+    <!-- Preference Strings -->
+    <string name="pref_category_browsing">Browsing</string>
+    <string name="pref_title_browsing_mode">Page Browsing Mode</string>
+    <string name="pref_summary_browsing_mode_mobile">View mobile versions of pages</string>
+    <string name="pref_summary_browsing_mode_desktop">View desktop versions of pages</string>
+
+    <string-array name="browsing_mode_entries">
+        <item>Mobile version</item>
+        <item>Desktop version</item>
+    </string-array>
+    <string-array name="browsing_mode_values">
+        <item>mobile</item>
+        <item>desktop</item>
+    </string-array>
+
+    <string name="pref_title_popup_blocker">Block Pop-ups</string>
+    <string name="pref_summary_popup_blocker_on">Pop-ups will be blocked</string>
+    <string name="pref_summary_popup_blocker_off">Pop-ups are allowed</string>
+
+    <string name="pref_title_search_engine">Default Search Engine</string>
+    <string-array name="search_engine_names">
+        <item>Google</item>
+        <item>Bing</item>
+        <item>DuckDuckGo</item>
+    </string-array>
+    <string-array name="search_engine_urls">
+        <item>https://www.google.com/search?q=</item>
+        <item>https://www.bing.com/search?q=</item>
+        <item>https://duckduckgo.com/?q=</item>
+    </string-array>
+
+    <string name="pref_category_content">Content &amp; Site Settings</string>
+    <string name="pref_title_manage_downloads">Download Manager</string>
+    <string name="pref_summary_manage_downloads">View and manage downloaded files</string>
+    <string name="pref_title_add_to_homescreen">Add to Home Screen</string>
+    <string name="pref_summary_add_to_homescreen">Add current site to your device\'s home screen</string>
+
+    <string name="toast_downloads_manager_clicked">Download Manager (Not Implemented)</string>
+    <string name="toast_add_to_homescreen_clicked">Add to Home Screen (Not Implemented)</string>
+
+
+    <!-- Placeholder drawables (actual images needed) -->
+    <drawable name="ic_arrow_back">@android:drawable/ic_media_previous</drawable>
+    <drawable name="ic_arrow_forward">@android:drawable/ic_media_next</drawable>
+    <drawable name="ic_refresh">@android:drawable/stat_notify_sync</drawable>
+    <drawable name="ic_bookmark_border">@android:drawable/star_off</drawable>
+    <drawable name="ic_bookmark_item">@android:drawable/star_on</drawable>
+    <drawable name="ic_tabs">@android:drawable/ic_dialog_dialer</drawable>
+    <drawable name="ic_settings">@android:drawable/ic_menu_manage</drawable>
+    <drawable name="ic_default_favicon">@android:drawable/ic_menu_mapmode</drawable>
+    <drawable name="ic_close">@android:drawable/ic_menu_close_clear_cancel</drawable>
+    <drawable name="ic_delete">@android:drawable/ic_menu_delete</drawable>
+
+</resources>

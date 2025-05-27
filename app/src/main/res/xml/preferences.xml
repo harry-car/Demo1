@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory app:title="@string/pref_category_browsing">
+
+        <ListPreference
+            app:key="pref_browsing_mode"
+            app:title="@string/pref_title_browsing_mode"
+            app:summary="@string/pref_summary_browsing_mode_mobile" <!-- Default summary -->
+            app:entries="@array/browsing_mode_entries"
+            app:entryValues="@array/browsing_mode_values"
+            app:defaultValue="mobile" />
+
+        <SwitchPreferenceCompat
+            app:key="pref_popup_blocker"
+            app:title="@string/pref_title_popup_blocker"
+            app:summaryOn="@string/pref_summary_popup_blocker_on"
+            app:summaryOff="@string/pref_summary_popup_blocker_off"
+            app:defaultValue="true" />
+
+        <ListPreference
+            app:key="pref_search_engine"
+            app:title="@string/pref_title_search_engine"
+            app:summary="%s" <!-- Will be dynamically updated -->
+            app:entries="@array/search_engine_names"
+            app:entryValues="@array/search_engine_urls"
+            app:defaultValue="https://www.google.com/search?q=" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/pref_category_content">
+        <Preference
+            app:key="pref_manage_downloads"
+            app:title="@string/pref_title_manage_downloads"
+            app:summary="@string/pref_summary_manage_downloads"/>
+
+        <Preference
+            app:key="pref_add_to_homescreen"
+            app:title="@string/pref_title_add_to_homescreen"
+            app:summary="@string/pref_summary_add_to_homescreen"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

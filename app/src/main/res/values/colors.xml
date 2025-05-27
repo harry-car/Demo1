@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Basic Theme Colors (Examples - these might be defined elsewhere or need adjustment) -->
+    <color name="colorPrimary">#3F51B5</color> <!-- Example Indigo -->
+    <color name="colorPrimaryDark">#303F9F</color> <!-- Darker Indigo -->
+    <color name="colorAccent">#FF4081</color> <!-- Example Pink -->
+
+    <!-- Button Selector Colors -->
+    <color name="button_normal_background">?attr/colorPrimary</color>
+    <color name="button_pressed_background">#DDDDDD</color> 
+    <color name="button_focused_background">#EEEEEE</color> 
+    <!-- <color name="button_border_normal">#CCCCCC</color> -->
+
+    <!-- Icon Button Selector Colors -->
+    <color name="icon_button_ripple_color">#40888888</color> <!-- Semi-transparent grey for ripple -->
+
+    <!-- Standard Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_title_search_engine"
+        android:textSize="20sp"
+        android:layout_marginBottom="16dp"/>
+
+    <RadioGroup
+        android:id="@+id/rg_search_engines"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- RadioButtons for search engines will be added programmatically or defined here -->
+        <!-- Example:
+        <RadioButton android:id="@+id/rb_google" android:text="Google" />
+        <RadioButton android:id="@+id/rb_bing" android:text="Bing" />
+        <RadioButton android:id="@+id/rb_duckduckgo" android:text="DuckDuckGo" />
+        -->
+    </RadioGroup>
+
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/icon_button_ripple_color"> <!-- Define this color -->
+    <item android:id="@android:id/mask"
+          android:drawable="@android:color/white" /> <!-- Mask for the ripple, can be any shape -->
+    <item android:drawable="@android:color/transparent" /> <!-- Default background: transparent -->
+    <!-- For pre-API 21, you might want a fallback selector if ripple isn't supported,
+         or just let it be transparent. The ?attr/selectableItemBackgroundBorderless
+         already provides good feedback. This custom one is if you want more control. -->
+</ripple>

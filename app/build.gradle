@@ -1,0 +1,65 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 33 // Example, use latest stable
+    defaultConfig {
+        applicationId "com.geely.browser"
+        minSdkVersion 21 // Android 5.0 Lollipop
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // For ViewBinding or DataBinding (optional, but useful for MVVM)
+    buildFeatures {
+        viewBinding true // If using ViewBinding
+        // dataBinding true // If using DataBinding
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1' // Or latest
+    implementation 'com.google.android.material:material:1.9.0' // Or latest
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // Or latest
+
+    // WebView
+    implementation 'androidx.webkit:webkit:1.7.0' // Or latest
+
+    // MVVM Components - ViewModel and LiveData
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.6.1' // Or latest
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.6.1' // Or latest
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.6.1' // For Java 8 language features like default methods in interfaces
+
+    // Room for Bookmarks Database
+    def room_version = "2.5.2" // Or latest
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    // For RxJava or Coroutines support with Room (optional)
+    // implementation "androidx.room:room-rxjava3:$room_version"
+    // implementation "androidx.room:room-guava:$room_version" // For Guava ListenableFuture
+
+    // Networking library (optional, if advanced search suggestions or API interactions are needed)
+    // implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    // implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // Unit Testing
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    testImplementation "org.mockito:mockito-core:4.+" // For mocking in unit tests
+
+    // PWA support might involve additional libraries like WorkManager for background tasks
+    // implementation "androidx.work:work-runtime:2.8.1" // Or latest
+}

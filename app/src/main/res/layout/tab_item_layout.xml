@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:gravity="center_vertical"
+    android:background="?attr/selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/iv_tab_favicon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_default_favicon" <!-- Placeholder -->
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/desc_tab_favicon"/>
+
+    <TextView
+        android:id="@+id/tv_tab_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/placeholder_tab_title"
+        android:maxLines="1"
+        android:ellipsize="end"/>
+
+    <ImageButton
+        android:id="@+id/btn_close_tab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_close" <!-- Placeholder -->
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/desc_close_tab_button"
+        android:padding="4dp"/>
+</LinearLayout>
