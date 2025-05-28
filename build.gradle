@@ -1,9 +1,46 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins {
-    id 'com.android.application' version '7.3.1' apply false
-    id 'com.android.library' version '7.3.1' apply false
+
+// Plugins block for defining versions of build tools.
+// For older Gradle versions (before `settings.gradle` pluginManagement), this was common here.
+// With modern Gradle, plugin versions are often managed in `settings.gradle`'s `pluginManagement` block
+// or directly in module-level `build.gradle` files if not using a convention plugin.
+// However, it's still common to declare core plugins like AGP here for Android projects.
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Define the version of the Android Gradle Plugin (AGP)
+        // Ensure this version is compatible with the chosen Gradle version (e.g., Gradle 7.5)
+        // and your Android Studio version.
+        // Example: For AGP 7.x (e.g., 7.3.0)
+        classpath 'com.android.tools.build:gradle:7.3.0'
+
+        // If you were using Kotlin, you would add the Kotlin Gradle plugin classpath here:
+        // classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20" // Example Kotlin version
+
+        // Add other build script dependencies here if needed by root project or all subprojects.
+    }
 }
 
+// Task to clean the build directory from the root project.
+// This is a common utility task.
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+// It's also good practice to define repositories for the actual project dependencies here,
+// although with `dependencyResolutionManagement` in `settings.gradle`, this might be redundant
+// or handled differently based on project structure.
+// For clarity and older patterns, it's often still included:
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        // You can add other repositories like jcenter() if needed (though jcenter is deprecated)
+        // or local Maven repositories.
+        // maven { url 'https://jitpack.io' } // Example for JitPack
+    }
 }
